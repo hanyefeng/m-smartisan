@@ -1,0 +1,21 @@
+<ul>
+    {{each dbData.item}}
+        {{each dbData.sku val key}}
+            {{if $value==val.id}}
+                <li sku_id="{{val.id}}">
+                    <a class="item-img">
+                        <img src="{{val.shop_info.ali_image}}" alt="">
+                    </a>
+                    <div class="item-content">
+                        <h4>{{val.shop_info.sku_mobile_title}}</h4>
+                        <p>{{val.shop_info.sku_mobile_sub_title}}</p>
+                        <p class="price">
+                            <i>¥</i>
+                            <span>{{val.price}}</span>
+                        </p>
+                    </div>
+                </li>
+            {{/if}}
+        {{/each}}
+    {{/each}}
+</ul>

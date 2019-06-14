@@ -1,0 +1,72 @@
+<div class="shoppingList_container">
+    <div class="shop_list">
+        <div class="group">
+            {{each data.localData}}
+                {{each data.skuData val key}}
+                    {{if $value.id==val.id}}
+                        <div class="item" goodsid={{$value.id}}>
+                            <div class="checkBox">
+                                <span class="m-check"></span>
+                            </div>
+                            <div class="item-wrapper">
+                                <div class="item-thumb">
+                                    <a>
+                                        <img src="{{val.shop_info.ali_image}}" alt="">
+                                    </a>
+                                </div>
+                                <div class="item-info">
+                                    <h4>{{val.shop_info.sku_mobile_title}}</h4>
+                                    <p class="item-attrs">
+                                        {{each val.attr_info attrVal attrKey}}
+                                            <span>{{attrVal.value}}</span>
+                                        {{/each}}
+                                    </p>
+                                    <div class="item-price-container">
+                                        <div class="quantity">
+                                            <div class="count-btn down"></div>
+                                            <span class="num btn-num">{{$value.num}}</span>
+                                            <div class="count-btn up"></div>
+                                        </div>
+                                        <p class="price">
+                                            <span>
+                                                <i>¥</i>
+                                                <span>{{val.price}}.00</span>
+                                            </span>
+                                            <span class="sum">x  {{$value.num}}</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {{/if}}
+                {{/each}}
+            {{/each}}
+        </div>
+    </div>
+</div>
+<div class="bottom_bar">
+    <div class="select_info">
+        <div class="checkBox">
+            <span class="m-check all-check"></span>
+        </div>
+        <span>已选 <i>0</i> 件</span>
+    </div>
+    <div class="sum_info">
+        <div class="desc">
+            <p class="total-price">
+                合计：
+                <span>
+                    <i>¥</i>
+                    <span>0.00</span>
+                </span>
+            </p>
+            <div class="delivery">应付金额不含运费</div>
+        </div>
+        <div class="btn-blue btn-disabled">现在结算</div>
+    </div>
+</div>
+<div class="toast-tips-wrap">
+    <div class="toast-tips">
+        <label>删除成功</label>
+    </div>
+</div>

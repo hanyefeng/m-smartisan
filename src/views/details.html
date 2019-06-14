@@ -1,0 +1,195 @@
+<div class="container details-container">
+  <header>
+    <a class="nav-back">
+      <i class="yo-ico">&#xe622;</i><span>返回</span>
+    </a>
+    <h1 class="title">{{data.shop_info.sku_mobile_title}}</h1>
+  </header>
+  <main>
+    <div class="header-bar">
+      <ul class="bar">
+        <li class="active" page-id='0'>商品</li>
+        <li page-id='1'>详情</li>
+        <li page-id='2'>参数</li>
+        <li page-id='3'>推荐</li>
+      </ul>
+    </div>
+    <div class="details-content">
+      <div class="item-banner section" id="section_0">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            {{each data.shop_info.ali_images}}
+              <div class="swiper-slide">
+                  <img src="{{$value}}" alt="">
+              </div>
+            {{/each}}
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+      <div class="item-content">
+        <div class="title">
+            <h2>商品信息</h2>
+        </div>
+        <div class="title-content">
+          <h4>{{data.shop_info.sku_mobile_title}}</h4>
+          <p>{{data.shop_info.sku_mobile_sub_title}}</p>
+          <p class="price">
+            <i>¥</i>
+            <span>{{data.price}}.00</span>
+          </p>
+        </div>
+      </div>
+      <div class="item-select">
+        <h6>已选版本</h6>
+        <div class="select_box">
+          {{each data.attr_info}}
+            <p>
+              <span class="attr_name">{{$value.spec_name}}：</span>
+              <span class="attr_value">{{$value.value}}</span>
+            </p>
+          {{/each}}
+        </div>
+        <i class="yo-ico">&#xe621;</i>
+      </div>
+      <div class="item-details section" id="section_1">
+        <div class="title">
+            <h2>商品详情</h2>
+        </div>
+        <img src="{{data.spu.shop_info.tpl_content.base.images.ali_mobile.url[0]}}" alt="">
+      </div>
+      <div class="item-specs section" id="section_2">
+        <div class="title">
+          <h2>技术参数</h2>
+        </div>
+        {{if data.spu.shop_info.tpl_content.base.images.spec_params_mobile&&data.spu.shop_info.tpl_content.base.images.spec_params_mobile.url.length}}
+            <img src="{{data.spu.shop_info.tpl_content.base.images.spec_params_mobile.url[0]}}" alt="">
+        {{else}}
+        <div class="specs_main">
+            <ul>
+              {{each data.spu.shop_info.tpl_content.base.attributes}}
+                <li class="specs_item">
+                  <div class="spec_title">
+                    <h2>{{$value.title}}</h2>
+                  </div>
+                  <ul>
+                    {{each $value.list specVal specKey}}
+                      <li>
+                        <h4>{{specVal.name}}</h4>
+                        <span>{{specVal.value}}</span>
+                      </li>
+                    {{/each}}
+                  </ul>
+                </li>
+              {{/each}}
+            </ul>
+        </div>
+        {{/if}}
+      </div>
+      <div class="item-recommend section" id="section_3">
+        <div class="title">
+          <h2>相关推荐</h2>
+        </div>
+        <div class="dbContent">
+
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <ul class="item-footer">
+      <li class="cart">
+        <i class="yo-ico">&#xe60e;</i>
+        <a href="#/index/home/shopList"></a>
+        <div class="tag">
+          <span>0</span>
+        </div>
+      </li>
+      <li class="toshopcart">
+        <span>
+          <a>加入购物车</a>
+        </span>
+      </li>
+      <li>
+        <span class="highlight">
+          <a>现在购买</a>
+        </span>
+      </li>
+      <li class="affirm">
+        <span>
+          <a>确认</a>
+        </span>
+      </li>
+    </ul>
+  </footer>
+  <div class="dialog-wrap">
+      <div class="dialog-shadow"></div>
+      <div class="dialog">
+        <div class="dialog-header">
+          <div class="goods-image">
+              <img src="{{data.shop_info.ali_image}}" alt="">
+          </div>
+          <div class="goods-info">
+            <h4>{{data.shop_info.sku_mobile_title}}</h4>
+            <p>
+              {{each data.attr_info}}
+                <span>
+                  {{$value.value}}
+                </span>
+              {{/each}}
+            </p>         
+            <p class="price">
+              <i>¥</i>
+              <span>{{data.price}}.00</span>
+            </p>
+          </div>
+        </div>
+        <div class="iscroll-content">
+          {{each data.shop_info.spec_v2}}
+            <div class="select_column">
+              <div class="attr_title">
+                <h2>{{$value.spec_name}}选择</h2>
+              </div>
+              <div class="attr_item">
+                {{if $value.spec_id==1}}
+                  <ul>
+                    {{each $value.spec_values val key}}
+                      <li class="color" typeId={{$value.spec_id}} spec_id="{{val.id}}">
+                        <span>
+                          <img src="{{val.image}}" alt="">
+                        </span>
+                        <p>{{val.show_name}}</p>
+                      </li>
+                    {{/each}}
+                  </ul>
+                {{else}}
+                  <ul>
+                    {{each $value.spec_values val key}}
+                      <li typeId={{$value.spec_id}} spec_id="{{val.id}}">
+                        <p>{{val.show_name}}</p>
+                      </li>
+                    {{/each}}
+                  </ul>
+                {{/if}}
+              </div>
+            </div>
+          {{/each}}
+          <div class="select_column">
+              <div class="attr_title">
+                <h2>选择数量</h2>
+              </div>
+              <div class="attr_count">
+                <div class="count-btn down disabled"></div>
+                <span class="num btn-num">1</span>
+                <div class="count-btn up"></div>
+              </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="toast-tips-wrap">
+    <div class="toast-tips">
+      <label>已添至购物车</label>
+    </div>
+  </div>
+</div>

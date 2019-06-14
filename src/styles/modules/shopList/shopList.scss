@@ -1,0 +1,262 @@
+.emptyContainer{
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .img-container{
+        width: 88px;
+        height: 114px;
+        img{
+            width: 100%;
+            user-select: none;
+        }
+    }
+    h3{
+        margin: 25px 0 9px;
+        font-size: 0.21rem;
+        color: rgba(0,0,0,0.15);
+        font-weight: 800;
+    }
+    p{
+        font-size: 0.14rem;
+        color: rgba(0,0,0,0.15);
+    }
+    .btn-container{
+        margin-top: .16rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        a{
+            display: block;
+            width: 1.42rem;
+            height: .4rem;
+            font-size: .125rem;
+            line-height: .4rem;
+            text-align: center;
+            font-weight: 800;
+            border-radius: 8px;
+        }
+        .login{
+            background: linear-gradient(#6f94e8,#5178df);
+            margin-right: .1rem;
+            color: #fff;
+        }
+        .buy{
+            color: rgba(0,0,0,0.6);
+            border: 1px solid rgba(0,0,0,.12);
+        }
+    }
+}
+
+.shoppingList_container{
+    .shop_list{
+        padding-bottom: 54px;
+        .group{
+            margin-bottom: 6px;
+            background: #ffffff;
+            box-shadow: 0 5px 13px rgba(0,0,0,.1);
+            .item{
+                height: 114px;
+                display: flex;
+                align-items: center;
+                .checkBox{
+                    width: 44px;
+                    text-align: center;
+                    line-height: 0;
+                    .m-check{
+                        display: inline-block;
+                        width: 23px;
+                        height: 23px;
+                        background: url("https://static.smartisanos.cn/mobile/assets/images/checkbox@3x.1a1973d70f1b950c69558422677064d0.png") no-repeat;
+                        background-position: 0 -80px;
+                        background-size: 100% auto;
+                    }
+                    .check-on{
+                        background-position: 0 0;
+                    }
+                }
+                .item-wrapper{
+                    display: flex;
+                    align-items: center;
+                    flex:1;
+                    padding: 0 15px 0 0;
+                    .item-thumb{
+                        width: 90px;
+                        height: 90px;
+                        img{
+                            width: 90px;
+                            height: 90px;
+                        }
+                    }
+                    .item-info{
+                        display: flex;
+                        flex: 1;
+                        flex-direction: column;
+                        margin: 4px 0 4px 13px;
+                        h4{
+                            @include ellipsis();
+                            width: 2.1rem;
+                            font-size: .14rem;
+                            font-weight: 800;
+                            color: #000;
+                        }
+                        .item-attrs{
+                            margin: 7px 0;
+                            color: #7f7f7f;
+                            font-size: .12rem;
+                            span::after{
+                                content:" \B7   "
+                              }
+                              span:last-child::after{
+                                content:""
+                              }
+                        }
+                        .item-price-container{
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            .quantity{
+                                height: 30px;
+                                display: none;
+                                .num{
+                                    width: 40px;
+                                    height: 25px;
+                                    line-height: 24px;
+                                    font-size: 12px;
+                                    text-align: center;
+                                    overflow: hidden;
+                                    flex: 0 0 40px;
+                                }
+                                .count-btn{
+                                    width: 40px;
+                                    height: 40px;
+                                    position: relative;
+                                    top:-7px;
+                                }
+                                .down{
+                                    background: url("../../../images/down.png") no-repeat;
+                                    background-size: 100% auto;
+                                }
+                                .up{
+                                    background: url("../../../images/up.png") no-repeat;
+                                    background-size: 100% auto;
+                                }
+                                .count-btn.disabled{
+                                    opacity: .3;
+                                }
+                            }
+                            .price{
+                                .sum{
+                                    font-weight: normal !important;
+                                    color: #999 !important;
+                                    margin-left: 5px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.bottom_bar{
+    height: 54px;
+    width: 100%;
+    position: fixed;
+    bottom: .54rem;
+    box-shadow: 0 -0.2rem 1rem rgba(0,0,0,.1);
+    background: #fafafa;
+    border: 1px solid rgba(0,0,0,.1);
+    border-width:1px 0 0 0;
+    padding: 0 12px;
+    color: #666;
+    font-size:12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .select_info{
+        display: flex;
+        align-items: center;
+        .checkBox{
+            line-height: 0;
+            .m-check{
+                display: inline-block;
+                width: 23px;
+                height: 23px;
+                background: url("https://static.smartisanos.cn/mobile/assets/images/checkbox@3x.1a1973d70f1b950c69558422677064d0.png") no-repeat;
+                background-position: 0 -80px;
+                background-size: 100% auto;
+            }
+            .check-on{
+                background-position: 0 0;
+            }
+        }
+        >span{
+            color: #999;
+            margin-left: 8px;
+            i{
+                font-weight: 800;
+                font-size: .15rem;
+            }
+            i.color-red{
+                color: #d44d44;
+            }
+        }
+    }
+    .sum_info{
+        margin-right: 120px;
+        .desc{
+            .total-price{
+                font-weight: 700;
+                color: #333;
+                z-index: 10;
+                position: relative;
+                font-size: 10px;
+                span{
+                    color: #d44d44;
+                    font-size: 12px;
+                }
+            }
+        }
+        .btn-blue{
+            position: absolute;
+            right: 11px;
+            top: 50%;
+            height: 40px;
+            line-height: 40px;
+            width: 110px;
+            display: block;
+            transform: translateY(-50%);
+            text-align: center;
+            border-radius: 6px;
+            color: #fff;
+            text-shadow: 0 -1px 0 rgba(0,0,0,.15);
+            background: linear-gradient(#6f94e8,#5178df);
+            box-shadow: inset 0 -1px 1px rgba(0,0,0,.2), 0 0 1px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.2);
+            font-size: 14px;
+        }
+        .btn-blue.edit-red{
+            background: linear-gradient(#db6962,#d0453d);
+        }
+        .btn-blue.btn-disabled{
+            background: linear-gradient(#bfbfbf,#999);
+        }
+    }
+}
+.nav-edit{
+    right: 0.08rem;
+    padding: .11rem .14rem 0;
+    background: linear-gradient(#2a2a29,#151515);
+    box-shadow: inset 0 1px 1px hsla(0,0%,100%,.1), inset 0 0 1px rgba(0,0,0,.5);
+    color: #fff;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 12px;
+    height: 32px;
+    line-height: 1;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}

@@ -1,0 +1,27 @@
+<div class="title" label="data" data-list-id="0">
+    <h2>{{data.floors[data.label].floorName}}</h2>
+    <i class="yo-ico">&#xe621;</i>
+</div>
+<div class="content">
+<ul>
+    {{each data.floors[data.label].dataList}}
+        {{each data.sku val key}} 
+            {{if $value==val.id}}
+            <li sku_id="{{val.id}}">
+                <div class="mask">
+                    <img src="{{val.shop_info.ali_image}}" alt="">
+                </div>
+                <div class="item-content">
+                    <h3>{{val.shop_info.sku_mobile_title}}</h3>
+                    <p class="hotSubTitle">{{val.shop_info.sku_mobile_sub_title}}</p>
+                    <p class="price">
+                    <i>¥</i>
+                    <span>{{val.price}}</span>
+                    </p>
+                </div>
+            </li>
+            {{/if}}
+        {{/each}}    
+    {{/each}}
+</ul>
+</div>

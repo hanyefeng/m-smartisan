@@ -1,0 +1,49 @@
+<div class="goodsContent">
+    <ul>
+    {{each goodsData.item}}
+        {{each goodsData.sku val key}} 
+            {{if $value==val.id}}
+                <li sku_id="{{val.id}}">
+                    <img src="{{val.shop_info.ali_image}}" alt="">
+                    <div class="item">
+                        <h5>{{val.shop_info.sku_mobile_title}}</h5>
+                        <p>{{val.shop_info.sku_mobile_sub_title}}</p>
+                        <div class="attr-container">
+                            {{each val.shop_info.spec_v2 attrVal attrKey}}
+                                {{if attrVal.spec_id==2||attrVal.spec_id==14}}
+                                    <ul class="style-label">
+                                        {{each attrVal.spec_values labVal labKey}}
+                                            <li class="box-border">
+                                                <span>{{labVal.show_name}}</span>
+                                            </li>
+                                        {{/each}}
+                                    </ul>
+                                {{/if}}
+                            {{/each}}
+                            {{each val.shop_info.spec_v2 attrVal attrKey}}
+                                {{if attrVal.spec_id==1}}
+                                    <ul class="color-switch">
+                                        {{each attrVal.spec_values labVal labKey}}
+                                            <li>
+                                                <div class="outer">
+                                                    <span style="background-image: url({{labVal.image}}); background-repeat: no-repeat; background-position: center center; background-size: contain"></span>
+                                                </div>
+                                            </li>
+                                        {{/each}}
+                                    </ul>
+                                {{/if}}
+                            {{/each}}
+                        </div>
+                        <div class="price-content">
+                            <p class="price">
+                                <i>¥</i>
+                                <span>{{val.price}}</span>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            {{/if}}
+        {{/each}}    
+    {{/each}}
+    </ul>
+</div>

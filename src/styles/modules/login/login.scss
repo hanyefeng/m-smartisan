@@ -1,0 +1,125 @@
+.loginContainer{
+    background: url("../../../images/bg.jpg") repeat;
+    header{
+        height: .56rem;
+        h1{
+            line-height: .56rem !important;
+        }
+    }
+    main{
+        .content{
+            margin: 14px 12px 0;
+            form{
+                .common-form{
+                    li{
+                        position: relative;
+                        label{
+                            color: #b2b2b2;
+                            font-size: 15px;
+                            padding: 1px 0 0;
+                            position: absolute;
+                            left: .1rem;
+                            top: 0;
+                            line-height: .44rem;
+                        }
+                        input{
+                            padding: 0 10px;
+                            width: 100%;
+                            height: .44rem;
+                            border:0;
+                            background: 0 0;
+                        }
+                    }
+                    li.username{
+                        opacity: 0.618;
+                        overflow: hidden;
+                        background-color: #fff;
+                        border: 1px solid #d1d1d1;
+                        border-radius: 6px 6px 0 0;
+                        border-top: 0;
+                        box-shadow: 0 3px 5px -4px rgba(0,0,0,.4) inset, -1px 0 3px -2px rgba(0,0,0,.1) inset;
+                    }
+                    li.password{
+                        opacity: 0.618;
+                        overflow: hidden;
+                        background-color: #fff;
+                        border: 1px solid #d1d1d1;
+                        border-top: 0;
+                        border-radius: 0 0 6px 6px;
+                    }
+                    li.remember{
+                        margin: .14rem .12rem .2rem;
+                        height: .14rem;
+                        display: flex;
+                        justify-content: space-between;
+                        .auto{
+                            display: flex;
+                            .check-Box{
+                                display: block;
+                                background-image: url("../../../images/checkbox.png");
+                                background-size: 22px auto;
+                                width: 22px;
+                                height: 22px;
+                                background-position: 0 0;
+                                margin-right: 0.06rem;
+                            }
+                            i{
+                                font-size: 14px;
+                                color: #7f7f7f;
+                            }
+                        }
+                        a{
+                            margin-left: .15rem;
+                            font-size: 14px;
+                            color: #7f7f7f;
+                        }
+                    }
+                }
+                .btn_wrapper{
+                    margin-top: .24rem;
+                    .btn{
+                        border-radius: 6px;
+                        height: .53rem;
+                        line-height: .53rem;
+                        background: linear-gradient(#6788d0,#4364bb);
+                        a{
+                            display: block;
+                            width: 100%;
+                            color: #fff;
+                            text-align: center;
+                            font-size: .18rem;
+                            text-shadow: 0 -1px rgba(0,0,0,.2);
+                            height: .53rem;
+                            line-height: .53rem;
+                            border-radius: 6px;
+                        }
+                    }
+                    .btn.disabled{
+                        opacity: .6;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.tips-wrap{
+    position: fixed;
+    left: 50%;
+    bottom: 1rem;
+    transform: translateX(-50%);
+    z-index: 99999;
+    .tips{
+      display: none;
+      text-align: center;
+      padding: 0.05rem 0.1rem 0.05rem;
+      font-size: .15rem;
+      color: #996b3d;
+      font-weight: 800;
+      border:1px solid #954a00;
+      background: linear-gradient(0deg,hsla(43,85%,89%,.95),rgba(255,249,233,.95));
+    }
+}
+//   .on{
+//     display: block !important;
+//   }

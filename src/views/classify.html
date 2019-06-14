@@ -1,0 +1,38 @@
+{{each classifyData.item}}
+  <div class="classifyContent">
+    <div class="classify-title">{{$value.name}}</div>
+    <div class="classify-banner">
+      <img src="{{$value.image.src}}" alt="">
+    </div>
+    <div class="classify-item">
+      {{if $value.layout.type=="productLayoutCategoryOneOne"}}
+        {{each $value.layout.dataList dataVal dataKey}}
+          {{each classifyData.sku skuVal skuKey}}
+            {{if dataVal.sku==skuVal.id}}
+              <div class="classify-one" sku_id="{{skuVal.id}}">
+                <img src="{{skuVal.shop_info.ali_image}}" alt="">
+                <span>{{skuVal.shop_info.sku_mobile_title}}</span>
+                <i class="yo-ico">&#xe621;</i>
+              </div>
+            {{/if}}
+          {{/each}}
+        {{/each}}
+      {{else}}
+        <div class="classify-three-container">
+          {{each $value.layout.dataList dataVal dataKey}}
+            {{each classifyData.sku skuVal skuKey}}
+              {{if dataVal.sku==skuVal.id}}
+                <div class="classify-three" sku_id="{{skuVal.id}}">
+                  <div class="img_con">
+                    <img src="{{skuVal.shop_info.ali_image}}" alt="">
+                  </div>  
+                  <span>{{skuVal.shop_info.sku_mobile_title}}</span>
+                </div>
+                {{/if}}
+            {{/each}}
+          {{/each}}
+        </div>
+      {{/if}}
+    </div>
+  </div>
+{{/each}}
